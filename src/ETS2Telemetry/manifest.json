@@ -8,9 +8,10 @@
   "icon": "Assets/icon.svg",
   "entrypoints": {
     "win-x64": {
-      "executable": "ETS2Telemetry.exe",
+      "executable": "runtimes/win-x64/ETS2Telemetry.dll",
       "runtime": {
-        "kind": "FrameworkDependent"
+        "kind": "FrameworkDependent",
+        "dotnetVersion": "10.0"
       }
     }
   },

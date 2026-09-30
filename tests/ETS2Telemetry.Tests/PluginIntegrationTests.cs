@@ -7,7 +7,7 @@ namespace ETS2Telemetry.Tests;
 public class PluginIntegrationTests
 {
     [Test]
-    public void Plugin_builds()
+    public void PluginBuilds()
     {
         var builder = MacroDeckPlugin.CreatePlugin([]);
 

@@ -10,7 +10,9 @@
         "Release",
         "-r",
         "win-x64",
-        "--no-self-contained",
+        "--self-contained",
+        "false",
+        "-p:UseAppHost=false",
         "-o",
         "bin/publish/win-x64"
       ],
