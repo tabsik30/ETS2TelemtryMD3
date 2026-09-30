@@ -5,9 +5,7 @@ using ETS2Telemetry.Services;
 using MacroDeck.Sdk;
 using MacroDeck.Sdk.Actions;
 using MacroDeck.Sdk.ConfigFlow;
-using MacroDeck.Sdk.Ui;
 using MacroDeck.Sdk.Variables;
-using MacroDeck.Sdk.Widgets;
 
 namespace ETS2Telemetry;
 
@@ -22,10 +20,9 @@ namespace ETS2Telemetry;
 /// convertible from string literals, so the action files barely change).
 /// </summary>
 internal sealed class PluginIntegration(TelemetryPollingService telemetry)
-    : IPluginIntegration, IVariableProvider, IConfigFlowProvider, IWidgetTypeProvider, IUiProvider
+    : IPluginIntegration, IVariableProvider, IConfigFlowProvider
 {
     private IIntegrationContext? _context;
-    private readonly TelemetryWidgetProvider _widgets = new(telemetry);
 
     public IReadOnlyList<IActionDefinition> Actions { get; } =
     [
@@ -117,23 +114,4 @@ internal sealed class PluginIntegration(TelemetryPollingService telemetry)
 
     public IConfigFlow CreateConfigFlow() => new Ets2ConfigFlow(telemetry);
 
-    // --- Widget provider ---
-
-    public string ProviderName => _widgets.ProviderName;
-
-    public IReadOnlyList<WidgetTypeDescriptor> GetWidgetTypes() => _widgets.GetWidgetTypes();
-
-    public Task InitializeAsync(
-        IWidgetTypeProviderContext context,
-        CancellationToken cancellationToken = default) =>
-        _widgets.InitializeAsync(context, cancellationToken);
-
-    // --- UI provider ---
-
-    public IReadOnlyList<UiSurfaceDeclaration> Surfaces => _widgets.Surfaces;
-
-    public Task<IUiSession?> CreateSessionAsync(
-        UiSessionRequest request,
-        CancellationToken cancellationToken) =>
-        _widgets.CreateSessionAsync(request, cancellationToken);
 }
