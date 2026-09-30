@@ -22,8 +22,5 @@
   "repository": "https://github.com/tabsik30/ETS2TelemtryMD3",
   "compatibility": {
     "macroDeck": ">=3.0.0-beta.14"
-  },
-  "ai": {
-    "generated": true
   }
 }
