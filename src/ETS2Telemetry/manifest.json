@@ -5,7 +5,7 @@
   "name": "ETS2/ATS Telemetry",
   "version": "1.0.0",
   "description": "Reads Euro Truck Simulator 2 / American Truck Simulator telemetry, exposes variables, and provides live speedometer and fuel gauge widgets.",
-  "icon": "Assets/icon.svg",
+  "icon": "Assets/icon.png",
   "entrypoints": {
     "win-x64": {
       "executable": "runtimes/win-x64/ETS2Telemetry.dll",
