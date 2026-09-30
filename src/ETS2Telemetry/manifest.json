@@ -5,7 +5,7 @@
   "name": "ETS2/ATS Telemetry",
   "version": "1.0.3",
   "description": "Reads Euro Truck Simulator 2 / American Truck Simulator telemetry and exposes speed, fuel, gear, light and cruise control variables for use in deck widgets.",
-  "icon": "Assets/icon.png",
+  "icon": "Assets/icon.svg",
   "entrypoints": {
     "win-x64": {
       "executable": "runtimes/win-x64/ETS2Telemetry.dll",
