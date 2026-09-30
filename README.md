@@ -7,7 +7,7 @@ make buttons with star and stop telemetry action
 extension contain widget for speedometer and fuel gauge 
 
 |variables |indicators |
-------------------------------------------------------
+|----------|------------|
 |vars.cruise_control_on | shows cruise control status|
 |vars.cruise_control_speed | shows cruise control set speed|
 |vars.fuel_percent | shows status of fuel|
