@@ -10,7 +10,7 @@
         "Release",
         "-r",
         "win-x64",
-        
+        "--no-self-contained",
         "-o",
         "bin/publish/win-x64"
       ],
