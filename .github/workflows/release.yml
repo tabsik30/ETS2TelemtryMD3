@@ -13,5 +13,5 @@ jobs:
     with:
       version: ${{ github.event.release.tag_name }}
       source: src/ETS2Telemetry
-      cli-version: 3.0.0-beta.15
+      cli-version: 3.0.0-beta.14
       changelog: ${{ github.event.release.body }}
