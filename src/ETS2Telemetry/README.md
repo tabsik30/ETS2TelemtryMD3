@@ -2,7 +2,7 @@
 Extension that shows telemetry from ETS2 ATS on Macrodeck 3 
 
 to use it you need download ets2 ats server https://github.com/funbit/ets2-telemetry-server
-
+telemetry server must be running on localhost:25555
 make buttons with star and stop telemetry action 
 
 extension contain widget for speedometer and fuel gauge with setting to change
