@@ -1,7 +1,6 @@
 using ETS2Telemetry.Services;
 using MacroDeck.Localization;
 using MacroDeck.Sdk;
-using MacroDeck.Sdk;
 using MacroDeck.Sdk.Actions;
 
 namespace ETS2Telemetry.Actions;
