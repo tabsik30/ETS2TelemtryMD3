@@ -4,8 +4,8 @@ to use it you need download ets2 ats server https://github.com/funbit/ets2-telem
 
 make buttons with star and stop telemetry action 
 
-extension contain widget for speedometer and fuel gauge 
-
+extension contain widget for speedometer and fuel gauge with setting to change
+to change from km to mph you need change setting in widget and in extension settings
 |variables |indicators |
 |----------|------------|
 |vars.cruise_control_on | shows cruise control status|
