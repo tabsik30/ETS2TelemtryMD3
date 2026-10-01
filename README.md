@@ -41,8 +41,8 @@ The plugin has a one-step config flow with a single setting:
 - **Use mph** - When enabled, speed values are shown in mph instead of km/h
 
 ## Building gauges
-
-The plugin provides raw telemetry variables. Speedometer and fuel gauge widgets are built by you in Macro Deck using these variables. Add a widget to your deck, bind it to a variable (e.g. `speed`), and configure the widget's appearance.
+The plugin contain Widget for live speedometer and fuel gauge also 
+The plugin provides raw telemetry variables. Speedometer and fuel gauge widgets can be built by you in Macro Deck using these variables. Add a widget to your deck, bind it to a variable (e.g. `speed`), and configure the widget's appearance.
 
 ## Building
 
