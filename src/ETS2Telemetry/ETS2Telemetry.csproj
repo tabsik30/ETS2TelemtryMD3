@@ -22,6 +22,7 @@
         <PackageReference Include="MacroDeck.Plugin.Hosting" />
         <PackageReference Include="MacroDeck.Plugin.Serilog" />
         <PackageReference Include="MacroDeck.Sdk" />
+        <PackageReference Include="MacroDeck.Ui" />
     </ItemGroup>
 
     <!-- The SDK reads the manifest from the content root at startup and resolves the icon path against
