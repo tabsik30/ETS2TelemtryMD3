@@ -14,9 +14,9 @@
         "false",
         "-p:UseAppHost=false",
         "-o",
-        "bin/publish/win-x64"
+        "runtimes/win-x64"
       ],
-      "output": "bin/publish/win-x64"
+      "output": "runtimes/win-x64"
     }
   }
 }
