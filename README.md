@@ -5,7 +5,7 @@ A Macro Deck 3 plugin that reads Euro Truck Simulator 2 / American Truck Simulat
 ## Requirements
 
 - Macro Deck 3 (3.0.0-beta.14 or later)
-- An ETS2/ATS telemetry server running on `localhost:25555` (e.g. the [ETS2/ATS Telemetry Web Server](https://github.com/Funbit/ets2-telemetry-web-server))
+- An ETS2/ATS funbit telemetry server running on `localhost:25555` (e.g. the [ETS2/ATS funbit Telemetry Web Server]https://github.com/funbit/ets2-telemetry-server
 
 ## What it does
 
