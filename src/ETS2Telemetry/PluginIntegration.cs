@@ -26,6 +26,7 @@ internal sealed class PluginIntegration(TelemetryPollingService telemetry)
 {
     private IIntegrationContext? _context;
     private readonly TelemetryWidgetProvider _widgets = new(telemetry);
+    private readonly TelemetryDisplayWidgetProvider _displayWidgets = new(telemetry);
 
     public IReadOnlyList<IActionDefinition> Actions { get; } =
     [
@@ -121,19 +122,29 @@ internal sealed class PluginIntegration(TelemetryPollingService telemetry)
 
     public string ProviderName => _widgets.ProviderName;
 
-    public IReadOnlyList<WidgetTypeDescriptor> GetWidgetTypes() => _widgets.GetWidgetTypes();
+    public IReadOnlyList<WidgetTypeDescriptor> GetWidgetTypes() =>
+    [
+        .. _widgets.GetWidgetTypes(),
+        .. _displayWidgets.GetWidgetTypes(),
+    ];
 
-    public Task InitializeAsync(
+    public async Task InitializeAsync(
         IWidgetTypeProviderContext context,
-        CancellationToken cancellationToken = default) =>
-        _widgets.InitializeAsync(context, cancellationToken);
+        CancellationToken cancellationToken = default)
+    {
+        await _widgets.InitializeAsync(context, cancellationToken);
+        await _displayWidgets.InitializeAsync(context, cancellationToken);
+    }
 
     // --- UI provider ---
 
     public IReadOnlyList<UiSurfaceDeclaration> Surfaces => _widgets.Surfaces;
 
-    public Task<IUiSession?> CreateSessionAsync(
+    public async Task<IUiSession?> CreateSessionAsync(
         UiSessionRequest request,
-        CancellationToken cancellationToken) =>
-        _widgets.CreateSessionAsync(request, cancellationToken);
+        CancellationToken cancellationToken)
+    {
+        var session = await _widgets.CreateSessionAsync(request, cancellationToken);
+        return session ?? await _displayWidgets.CreateSessionAsync(request, cancellationToken);
+    }
 }

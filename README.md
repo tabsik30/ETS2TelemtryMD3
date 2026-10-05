@@ -27,6 +27,18 @@ The plugin polls the telemetry server every 200ms and exposes the following vari
 | `cruise-control-on` | Boolean | Cruise control active |
 | `cruise-control-speed` | Text | Cruise control set speed |
 
+## Widgets
+
+| Widget | Description |
+| --- | --- |
+| `ETS2 Gauge` | Configurable speedometer or fuel gauge |
+| `ETS2 Indicator` | Gradient arc gauge with a choice of sleepiness or engine RPM |
+| `Destination Distance` | Digital readout of the remaining route distance. Choose kilometres or miles in the widget settings; miles are converted from the telemetry distance in metres |
+
+Sleepiness is estimated from the telemetry server's time until the game starts yawning, scaled across
+an 11-hour driving interval. RPM is scaled against the truck's reported maximum engine RPM. The
+indicator and distance counter show `--` when their required telemetry data is unavailable.
+
 ## Actions
 
 | Action | Description |
@@ -42,7 +54,10 @@ The plugin has a one-step config flow with a single setting:
 
 ## Building gauges
 
-The plugin provides raw telemetry variables. Speedometer and fuel gauge widgets are built by you in Macro Deck using these variables. Add a widget to your deck, bind it to a variable (e.g. `speed`), and configure the widget's appearance.
+The existing `ETS2 Gauge` uses telemetry variables for speed or fuel. The separate `ETS2 Indicator`
+and `Destination Distance` widgets display their telemetry directly. Add the indicator to a deck and
+choose sleepiness or RPM in its settings. In the destination counter settings, choose kilometres or
+miles.
 
 ## Building
 

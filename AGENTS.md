@@ -186,7 +186,7 @@ capture a default before the config read finishes.
 - `Directory.Build.props` sets `Nullable`, `ImplicitUsings`, `latest-recommended` analysis,
   `EnforceCodeStyleInBuild` and `CS8602` as an error. Build warning-free; do not relax these to make a
   build pass.
-- C# in `src/` is tab-indented. Match the surrounding file rather than reformatting it.
+- C# in `src/` uses four-space indentation. Match the surrounding file rather than reformatting it.
 - Suppress a diagnostic with the narrowest scope that fits and **always with a reason** on the
   `#pragma` or the `NoWarn` entry.
 - Comments explain non-obvious constraints - a race, a protocol rule, why a shape was chosen - not what

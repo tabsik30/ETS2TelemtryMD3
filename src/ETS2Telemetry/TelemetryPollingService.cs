@@ -42,6 +42,10 @@ public sealed class TelemetryPollingService(
     public double FuelPercent { get; private set; }
     public int Gear { get; private set; }
     public double SpeedLimitKmh { get; private set; }
+    public double? EngineRpm { get; private set; }
+    public double? EngineRpmMax { get; private set; }
+    public TimeSpan? TimeUntilYawning { get; private set; }
+    public double? EstimatedDistanceMeters { get; private set; }
     public bool LowBeamOn { get; private set; }
     public bool HighBeamOn { get; private set; }
     public bool ParkingLightsOn { get; private set; }
@@ -114,6 +118,16 @@ public sealed class TelemetryPollingService(
                             Gear = gear;
                         }
 
+                        if (TryGetDouble(truck, "engineRpm", out var engineRpm))
+                        {
+                            EngineRpm = engineRpm;
+                        }
+
+                        if (TryGetDouble(truck, "engineRpmMax", out var engineRpmMax))
+                        {
+                            EngineRpmMax = engineRpmMax;
+                        }
+
                         if (TryGetBool(truck, "lightsBeamLowOn", out var lowBeam) ||
                             TryGetBool(truck, "lowBeamOn", out lowBeam))
                         {
@@ -166,11 +180,30 @@ public sealed class TelemetryPollingService(
                         }
                     }
 
+                    if (root.TryGetProperty("game", out var game))
+                    {
+                        TimeUntilYawning =
+                            game.TryGetProperty("nextRestStopTime", out var nextRestStopTime) &&
+                            nextRestStopTime.ValueKind == JsonValueKind.String &&
+                            nextRestStopTime.TryGetDateTime(out var nextRestStop)
+                                ? nextRestStop.TimeOfDay
+                                : null;
+                    }
+
                     if (root.TryGetProperty("navigation", out var navigation) &&
                         (TryGetDouble(navigation, "speedLimit", out var speedLimit) ||
                          TryGetDouble(navigation, "speedLimitKmh", out speedLimit)))
                     {
                         SpeedLimitKmh = speedLimit;
+                    }
+
+                    if (root.TryGetProperty("navigation", out navigation))
+                    {
+                        EstimatedDistanceMeters =
+                            TryGetDouble(navigation, "estimatedDistance", out var estimatedDistance) &&
+                            estimatedDistance >= 0
+                                ? estimatedDistance
+                                : null;
                     }
 
                     _firstSnapshot.TrySetResult(true);
