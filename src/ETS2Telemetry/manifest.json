@@ -3,7 +3,7 @@
   "manifestVersion": 1,
   "id": "com.tabsik12.ets2-telemetry",
   "name": "ETS2/ATS Telemetry",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Reads Euro Truck Simulator 2 / American Truck Simulator telemetry and exposes speed, fuel, gear, light and cruise control variables for use in deck widgets.",
   "icon": "Assets/icon.svg",
   "entrypoints": {
@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": "https://github.com/tabsik30/ETS2TelemtryMD3",
   "compatibility": {
-    "macroDeck": ">=3.0.0-beta.15"
+    "macroDeck": ">=3.0.0"
   },
   "ai": {
     "interaction": false,

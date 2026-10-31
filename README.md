@@ -2,9 +2,11 @@
 
 A Macro Deck 3 plugin that reads Euro Truck Simulator 2 / American Truck Simulator telemetry and exposes it as variables for use in your deck layouts.
 
+<a href="https://macro-deck.app/store/com.tabsik12.ets2-telemetry"><img alt="Open in the Macro Deck Store" src="https://assets.macro-deck.app/branding/Open%20in%20the%20Macro%20Deck%20Store%20Badge%20Dark.png" height="56"></a>
+
 ## Requirements
 
-- Macro Deck 3 (3.0.0-beta.15 or later)
+- Macro Deck 3 (3.0.0 or later)
 - An ETS2/ATS telemetry server running on `localhost:25555` (e.g. the [ETS2/ATS Telemetry Web Server](https://github.com/Funbit/ets2-telemetry-web-server))
 
 ## What it does

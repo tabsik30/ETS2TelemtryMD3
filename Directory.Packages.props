@@ -6,7 +6,7 @@
         <!-- Keep the Macro Deck package family on the SDK version targeted by this release. -->
         <CentralPackageFloatingVersionsEnabled>true</CentralPackageFloatingVersionsEnabled>
         <!-- One knob for every Macro Deck package, including local SDK builds. -->
-        <MacroDeckSdkVersion Condition="'$(MacroDeckSdkVersion)' == ''">3.0.0-beta.15</MacroDeckSdkVersion>
+        <MacroDeckSdkVersion Condition="'$(MacroDeckSdkVersion)' == ''">3.0.0</MacroDeckSdkVersion>
     </PropertyGroup>
 
     <ItemGroup>

@@ -246,8 +246,7 @@ check going from pass to fail as a blocking regression. Most checks `SKIP` until
 capabilities.
 
 The Macro Deck package family uses the version selected by `MacroDeckSdkVersion` in
-`Directory.Packages.props`, currently `3.0.0-beta.15`. Only to test against SDK surface that is not
-published yet, pack it into `local-feed/` and pass `-p:MacroDeckSdkVersion=<version>`.
+`Directory.Packages.props`, currently `3.0.0`.
 
 Working in the template repository itself rather than in a plugin generated from it? Changing its shape
 (files, names, `.template.config/template.json`, `packaging/`) also needs a generated-project check -
@@ -266,6 +265,14 @@ macrodeck-plugin inspect --artifact <id>-<version>.macroDeckPlugin
 `pack` validates first and recomputes every `files[]` digest from disk, discarding whatever the source
 manifest declared - so never hand-maintain `files[]`. Signing happens *after* packing, against the packed
 manifest; sign earlier and the digest will not match.
+
+After changing package references, regenerate `THIRD-PARTY-NOTICES` from the release publish output:
+
+```bash
+python inventory-dependencies.py src/ETS2Telemetry/runtimes/win-x64 --notices THIRD-PARTY-NOTICES --header-name "ETS2/ATS Telemetry"
+```
+
+The project includes the root `LICENSE` and `THIRD-PARTY-NOTICES` in each published runtime.
 
 ## Workflow
 
